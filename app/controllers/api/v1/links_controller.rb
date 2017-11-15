@@ -13,8 +13,8 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def create
-    @target = Target.create(target_params)
-    render json: @target
+    @link = Link.create(link_params)
+    render json: @link
   end
 
   def update
@@ -29,7 +29,7 @@ class Api::V1::LinksController < ApplicationController
 
   private
 
- def target_params
+ def link_params
    params.require(:link).permit(:user_id, :target_id, :kind)
  end
 

@@ -13,14 +13,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    @target = Target.create(target_params)
-    render json: @target
+    @user = User.create(user_params)
+    render json: @user
   end
 
   def update
     @user = User.find(params[:id])
 
-    @user.update(note_params)
+    @user.update(user_params)
     if @user.save
       render json: @user
     else
