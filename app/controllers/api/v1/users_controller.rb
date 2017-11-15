@@ -4,6 +4,10 @@ class Api::V1::UsersController < ApplicationController
     render json: @users
   end
 
+  def create
+    @target = Target.create(target_params)
+    render json: @target
+  end
 
   def update
     @user = User.find(params[:id])

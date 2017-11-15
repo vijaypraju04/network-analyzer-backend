@@ -12,11 +12,11 @@ class Api::V1::TargetsController < ApplicationController
   #   end
   # end
 
-  # def create
-  #   @target = Target.create(target_params)
-  #   @target.save
-  #   redirect_to target_path(@target)
-  # end
+  def create
+    @target = Target.create(target_params)
+    @target.save
+    render json: @target
+  end
 
   def update
     @target = Target.find(params[:id])
