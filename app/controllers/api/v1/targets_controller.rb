@@ -4,13 +4,13 @@ class Api::V1::TargetsController < ApplicationController
     render json: @targets
   end
 
-  # def show
-  # @target = Target.find(params[:id])
-  #   respond_to do |format|
-  #   format.html { render :show }
-  #   format.json { render json: @target }
-  #   end
-  # end
+  def show
+  @target = Target.find(params[:id])
+    respond_to do |format|
+    format.html { render :show }
+    format.json { render json: @target }
+    end
+  end
 
   def create
     @target = Target.create(target_params)
