@@ -13,6 +13,7 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def create
+    byebug
     @link = Link.create(link_params)
     render json: @link
   end
