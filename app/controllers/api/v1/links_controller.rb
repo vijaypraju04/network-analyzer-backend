@@ -5,10 +5,10 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def show
-  @target = Target.find(params[:id])
+  @link = Link.find(params[:id])
     respond_to do |format|
     format.html { render :show }
-    format.json { render json: @target }
+    format.json { render json: @link }
     end
   end
 

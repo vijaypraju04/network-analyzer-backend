@@ -5,10 +5,10 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-  @target = Target.find(params[:id])
+  @user = User.find(params[:id])
     respond_to do |format|
     format.html { render :show }
-    format.json { render json: @target }
+    format.json { render json: @user }
     end
   end
 
