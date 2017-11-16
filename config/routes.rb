@@ -13,6 +13,5 @@ Rails.application.routes.draw do
     resources :targets, only: [:index, :update, :create, :show]
     resources :links, only: [:index, :update, :create, :show]
   end
-end
-
+  end
 end
