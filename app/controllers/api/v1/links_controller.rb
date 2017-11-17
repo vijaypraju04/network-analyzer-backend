@@ -30,7 +30,8 @@ class Api::V1::LinksController < ApplicationController
   private
 
  def link_params
-   params.require(:link).permit(:user_id, :target_id, :kind)
+   # params.require(:link).permit(:user_id, :target_id, :kind)
+   params.require(:link).permit(:kind, target_params: [:name], user_params: [:name, :bio, :photo, :contact])
  end
 
 end

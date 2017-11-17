@@ -13,8 +13,17 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    byebug
+
+    # Dog.new({name: 'whatever', size: 'medium'})
+    # user_attributes = user_params.merge({target_attributes: params[:target]})
     @user = User.create(user_params)
+    length = params[:target][:name].length
+
+    length.times do |i|
+      @target = Target.find_or_create_by(name: params[:target][:name][i].capitalize)
+      @link = Link.create(user: @user, target: @target, kind: params[:link][:kind][i].capitalize)
+    end
+
     render json: @user
   end
 
@@ -31,7 +40,6 @@ class Api::V1::UsersController < ApplicationController
   private
 
  def user_params
-   params.require(:user).permit(:name, :bio, :photo, :contact,
-  link_params: [:kind], target_params: [:name, :category])
+   params.require(:user).permit(:name, :bio, :photo, :contact)
  end
 end
